@@ -27,10 +27,10 @@ public class Main {
         System.out.println("List of Products in Cart");
         ShoppingCart shoppingcart = store.getCart();
         for (Product product : shoppingcart.getProducts()) {
-            System.out.println(product.getTitle() + " | Category: " + product.getCategory() + " | Price: " + product.getPrice());
+            System.out.println(product.getTitle() + " ; Category: " + product.getCategory() + " ; Price: " + product.getPrice());
         }
 
         double sum = store.checkout();
-        System.out.println("Total price" + sum + "грн");
+        System.out.println("Total price = " + sum + "грн");
     }
 }
