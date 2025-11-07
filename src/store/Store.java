@@ -1,3 +1,4 @@
+// Updated: added PaymentStrategy checkout method
 package store;
 
 import model.Product;
