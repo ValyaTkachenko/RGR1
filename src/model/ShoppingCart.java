@@ -10,6 +10,14 @@ public class ShoppingCart {
         products.add(product);
     }
 
+    public void removeProduct(int index) {
+        products.remove(index);
+    }
+
+    public void clear() {
+        products.clear();
+    }
+
     public List<Product> getProducts() {
         return products;
     }
@@ -17,8 +25,9 @@ public class ShoppingCart {
     public double calculateTotal() {
         double sum = 0;
         for (Product product : products) {
-            sum = sum + product.getPrice();
+            sum += product.getPrice();
         }
         return sum;
     }
 }
+
