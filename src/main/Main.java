@@ -24,7 +24,7 @@ public class Main {
         boolean working = true;
 
         while (working) {
-            System.out.println("\n========= МАГАЗИН ТЕХНІКИ ДЛЯ ДОМУ =========");
+            System.out.println("\n         МАГАЗИН ТЕХНІКИ ДЛЯ ДОМУ         ");
             System.out.println("1. Показати каталог товарів");
             System.out.println("2. Додати товар у кошик");
             System.out.println("3. Показати кошик");
@@ -116,15 +116,22 @@ public class Main {
             System.out.println("Кошик порожній!");
             return;
         }
-
         System.out.println("\nВиберіть спосіб оплати:");
         System.out.println("1 — Картка");
         System.out.println("2 — Готівка");
         int paymentType = scanner.nextInt();
 
-        PaymentStrategy strategy =
-                (paymentType == 1) ? new CardPayment() : new CashPayment();
+        PaymentStrategy strategy;
+        if (paymentType == 1) {
+            strategy = new CardPayment();
+        } else if (paymentType == 2) {
+            strategy = new CashPayment();
+        } else {
+            System.out.println("Невірний вибір способу оплати! Спробуйте ще раз."); // <- повідомлення про помилку
+            return; // вихід із методу
+        }
 
         store.checkout(strategy);
     }
+
 }
